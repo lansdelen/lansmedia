@@ -1,0 +1,324 @@
+/*
+Theme Name: 	Lansmedia
+Theme URI: 		http://lansdelen.se/
+Description: 	Lansmedias
+Version: 		1.0
+Author: 		Länsdelen.se
+Author URI: 	http://lansdelen.se
+Tags: 			starkers, naked, clean, basic
+*/
+
+/*
+===========================
+CONTENTS:
+
+01 Sensible defaults
+02 Typography
+03 Media queries 
+===========================
+*/
+
+/* ---------------------------------------------------------------------------------------------------------- 
+01 Sensible defaults ----------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+
+@import "css/reset.css";
+
+div,
+article,
+section,
+header,
+footer,
+nav,
+li					{ position:relative; /* For absolutely positioning elements within containers (add more to the list if need be) */ }
+.group:after 		{ display:block; height:0; clear:both; content:"."; visibility:hidden; /* For clearing */ }
+body 				{ background:#fff; /* Don't forget to style your body to avoid user overrides */ 
+	font-family: 'Source Sans Pro', sans-serif;
+}
+::-moz-selection 	{ background:#b3d4fc; color:#333; }
+::selection 		{ background:#b3d4fc; color:#333; }
+.wrapper {
+	max-width: 1050px;
+	width: 90%;
+	margin: 0 auto;
+}
+header {
+	padding: 20px 0 20px 0;
+	background-color: #e9eff6;
+	box-shadow: 0px 2px 6px #d6d6d6;
+	margin-bottom: 30px;
+	height: 70px;
+}
+#logo {
+	float: left;
+}
+div#navigation{
+	margin-top: 30px;
+	float: right; 
+}
+#navigation .current-menu-item a, #navigation .current-menu-parent a {
+	color: #434343;
+}
+#navigation ul li .current-menu-item a {
+	background-color: #d1dde8;
+	box-shadow: inset 0px 0px 5px #ccc;
+}
+#navigation a {
+	text-decoration: none;
+	font-weight: normal;
+}
+#navigation ul, #navigation li{ list-style:none; padding:0; margin:0; display:inline; }
+#navigation ul li{ float:left; position:relative; }
+#navigation ul li a{ 
+    display:block; 
+    padding:0px 20px 10px 20px; 
+    margin:0px; 
+    font-size:1em; 
+    white-space:nowrap;
+    color: #a9b0b7;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+}
+#navigation ul li ul li {
+	float: none;  
+}
+#navigation ul li a:hover{ color:#434343;
+}
+#navigation ul li ul li a {
+	font-size: 0.8em;
+	border-radius: 0;
+	padding: 10px 25px 10px 10px;
+}
+#navigation ul li ul li a:hover {
+	background-color: #d1dde8;
+	box-shadow: inset 0px 0px 5px #ccc;
+}
+
+#navigation ul ul{ 
+    position:absolute; 
+    top:-99999px; 
+    left:0;
+    opacity: 0; /* Hide sub level */
+    -webkit-transition: opacity .2s ease-in-out;
+    -moz-transition: opacity .2s ease-in-out;
+    -o-transition: opacity .2s ease-in-out;
+    z-index:497;
+    margin: 0; 
+    background:#e9eff6; 
+    padding: 0px; 
+    border:1px solid #e5e5e5;
+}
+#navigation ul ul ul { 
+    position:absolute; 
+    top:-99999px; 
+    left:100%; 
+    opacity: 0; 
+    -webkit-transition: opacity .5s ease-in-out; /* Hide sub levels */
+    -moz-transition: opacity .5s ease-in-out;
+    -o-transition: opacity .5s ease-in-out;
+    border:1px solid #ccc;
+}
+#navigation ul li:hover>ul{ opacity: 1; position:absolute; top:99%; left:0; }
+#navigation ul ul li:hover>ul{ position:absolute; top:0; left:100%; opacity: 1; z-index:497; background:#333; }
+
+article p {
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+	line-height: 140%;
+	font: normal 400 16px/1.5;
+	font-size: 0.95em;
+	color: #434343;
+	-webkit-font-smoothing: antialiased;
+	letter-spacing: 0.1em;
+}
+footer {
+	box-shadow: 0px 0px 6px #ccc;
+	margin-top: 30px;
+	background-color: #e9eff6;
+	padding: 20px 0 20px 0;
+}
+
+/* ---------------------------------------------------------------------------------------------------------- 
+02 Typography -----------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+/*
+
+14 / 16	= 		0.875em 		(14px equivalent)
+16 / 16	= 		1em 			(16px equivalent)
+18 / 16 = 		1.125em 		(18px equivalent)
+21 / 16 = 		1.3125em 		(21px equivalent)
+24 / 16 = 		1.5em 			(24px equivalent)
+30 / 16 = 		1.875em 		(30px equivalent)
+
+*/
+
+body,
+input,
+textarea 			{ /* We strongly recommend you declare font-weight using numerical values, but check to see which weights you're exporting first */ }
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+	font-weight: 300;
+	margin: 10px 0 10px 0;
+	color: #434343;
+}
+h1 {
+	font-size: 2em;
+}
+h2 {
+	font-size: 1.5em;
+}
+h3 {
+	font-size: 1.2em;
+	font-weight: normal;
+}
+.rubrik {
+	color: #969696;
+	padding-bottom: 2px;
+	font-size: 0.8em;
+	border-bottom: solid 2px #ccc;
+	letter-spacing: 1px;
+	font-weight: 600;
+}
+blockquote {
+     background:#f9f9f9;
+     border-left:10px solid #ccc;
+     margin:1.5em 10px;
+     padding:.5em 10px;
+     quotes:"\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+     color:#ccc;
+     content:open-quote;
+     font-size:4em;
+     line-height:.1em;
+     margin-right:.25em;
+     vertical-align:-.4em;
+}
+blockquote p {
+     display:inline;
+}
+a[href^="mailto:"] {
+     background: url(img/email.png) no-repeat right top 2px;
+     padding-right:20px;
+}
+.amp {
+     font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
+     font-style: italic;
+     font-weight: normal;
+}
+form {
+	color: #666;
+	font-size: 0.8em;
+}
+input, textarea {
+	font-size: 1em;
+	height: 20px;
+	padding: 10px;
+	border-radius: 3px;
+	border: solid thin #ccc;
+	box-shadow: inset 0px 1px 3px #e8e6e3;
+	background-color: #fff;
+	  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+}
+textarea {
+	height: 120px;
+	resize:none;
+}
+textarea:focus {
+	height: 150px;
+}
+input[type=submit] {
+	border-radius: 3px;
+	border: 1px solid #336895;
+	box-shadow: inset 0 1px 0 #8dc2f0;
+	padding: 0 40px 0 40px;
+	height: 40px;
+	margin-top: 20px;
+	background: linear-gradient(bottom, #4889C2 0%, #5BA7E9 100%);
+	background: -o-linear-gradient(bottom, #4889C2 0%, #5BA7E9 100%);
+	background: -moz-linear-gradient(bottom, #4889C2 0%, #5BA7E9 100%);
+	background: -webkit-linear-gradient(bottom, #4889C2 0%, #5BA7E9 100%);
+	background: -ms-linear-gradient(bottom, #4889C2 0%, #5BA7E9 100%);
+	cursor: pointer;
+	color: white;
+	font-weight: bold;
+	text-shadow: 0 -1px 0 #336895;
+	font-size: 13px;
+}
+input[type=submit]:hover {
+	background: linear-gradient(bottom, #5c96c9 0%, #6bafea 100%);
+	background: -o-linear-gradient(bottom, #5c96c9 0%, #6bafea 100%);
+	background: -moz-linear-gradient(bottom, #5c96c9 0%, #6bafea 100%);
+	background: -webkit-linear-gradient(bottom, #5c96c9 0%, #6bafea 100%);
+	background: -ms-linear-gradient(bottom, #5c96c9 0%, #6bafea 100%);
+}
+input[type=submit]:active {
+	background: linear-gradient(bottom, #5BA7E9 0%, #4889C2 100%);
+	background: -o-linear-gradient(bottom, #5BA7E9 0%, #4889C2 100%);
+	background: -moz-linear-gradient(bottom, #5BA7E9 0%, #4889C2 100%);
+	background: -webkit-linear-gradient(bottom, #5BA7E9 0%, #4889C2 100%);
+	background: -ms-linear-gradient(bottom, #5BA7E9 0%, #4889C2 100%);
+	
+	box-shadow: inset 0 0 2px rgba(0,0,0, .3), 0 1px 0 white;
+}
+input:focus, textarea:focus { 
+    outline:none;
+    background-color: #fcfcfc;
+    border-color:#9ecaed;
+    box-shadow:0 0 10px #9ecaed;
+}
+
+span.wp-caption-dd {
+	font-weight: bold;
+	letter-spacing: 1px;
+	color: #666;
+	border-bottom: solid 3px #ccc;
+}
+
+/* ---------------------------------------------------------------------------------------------------------- 
+03 Media queries (using a mobile-first approach) ------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+
+/* 400 and up */
+@media screen and (min-width:400px) {
+
+					{ /* Place your styles here for all widths greater than 400px */ }
+}
+@media screen and (max-width:700px) {
+	header {
+		height: auto;
+		overflow: auto;
+	}
+	#logo {
+		float: none;
+		margin: 0 auto;
+		width: 241px;
+	}
+	#navigation {
+		float: none;
+		clear: both;
+		width: 100%;
+	}
+
+}
+
+/* Retina Display */
+@media screen and (-webkit-min-device-pixel-ratio:2) {
+
+					{ /* Place your styles here for all 'Retina' screens */ }
+
+}
